@@ -77,7 +77,7 @@
                 The planning process makes use of (i) public service steps descriptions in OSLO-STEPS, (ii) step related cost information, and (iii) information and about the 
                 user. In the following we will describe each of the three components and then introduce the internal step representation in N3 utilized by the workflow planner.
             </p>
-            <figure>
+            <figure class="img">
                 <img src="./linked_sources_images/planning_workflow.png"/>
                 <figcaption>Figure 1: An overview of linked sources used in planning workflows.</figcaption>
             </figure>
@@ -113,8 +113,18 @@
                 Listing 1 is a component level step, that is the lowest level in our representation and
                 the step can not be split up in smaller steps any more.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_1.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        step:confirmAddressChange a o-steps:ComponentLevelStep ;
+                            rdfs:label "Confirmation of address change"@en ;
+                            o-steps:producesState state:addressChangeConfirmed ;
+                            o-steps:requiresState state:addressChangeDeclared .
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 1: Step with pre/post condition states in OSLO-STEPS.
+                </figcaption>
             </figure>
             <h3 class="h4">States</h3>
             <p>
@@ -133,8 +143,17 @@
                 the shape <i>shape:addressChangeDeclaredShape</i> associated to it as a state
                 shape.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_2.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        state:addressChangeDeclared a o-steps:State ;
+                            rdfs:label "Declared address change"@en ;
+                            o-steps:hasStateShape shape:addressChangeDeclaredShape .
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 2: Example state declaration.
+                </figcaption>
             </figure>
             <h3 class="h4">State and UI shapes</h3>
             <p>
@@ -167,8 +186,22 @@
                 even specifically state its value and that value is a constant. In practice, most state shapes are 
                 declaring the existence of certain triples since our composition relies on the dependencies of data based on triple level.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_3.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        shape:addressChangeDeclaredShape a o-steps:StateShape ;
+                            sh:targetClass o-persoon:Inwoner ;
+                            sh:property shape:addressChangeValue .
+                        
+                        shape:addressChangeValue a sh:PropertyShape ;
+                            sh:path ex:addressChangeDeclared;
+                            sh:hasValue true ;
+                            sh:minCount 1.
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 3: Information of a user in RDF and a state shape expressing the post condition of a step.
+                </figcaption>
             </figure>
         </div>
         <div class="h3_alinea">
@@ -202,8 +235,18 @@
                 step and in 98% of the cases the step is executed as accepted (i.e. there is a
                 policeman visiting the place).
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_4.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        step:confirmAddressChange cost:usersatifaction 0.97;
+                                                                     cost:monetaryCost 0;
+                                                                     cost:success 0.98;
+                                                                     cost:duration 20160.
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 4: Example cost description.
+                </figcaption>
             </figure>
         </div>
         <div class="h3_alinea">
@@ -230,8 +273,20 @@
                 never necessary if the profile of the user already contains the information that the
                 address change has been confirmed by the police.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_5.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        :bob a o-persoon:Inwoner;
+                                foaf:familyName "Doe";
+                                foaf:givenName "Bob";
+                                ex:nationalNumber 123456;
+                                schema:contactPoint [ schema:contactType "gsm";
+                                                                     schema:telephone 8888888 ].
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 5: Example user information.
+                </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
@@ -275,8 +330,24 @@
                 it must additionally be mentioned, that when applying forward reasoning, interim
                 results get stored internally.                
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_6.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        {
+                            Map​ gps:description (
+                                                            From-part
+                                                            Transition-part
+                                                            To-part
+                                                            Step name
+                                                            Weights
+                                                            )
+                        }
+                        &lt;={​Where-part​}.
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 6:Schematic overview of our step description format.
+                </figcaption>
             </figure>
             <p>
                 This is also the reason why our workflow composer only makes use of backward
@@ -353,8 +424,33 @@
                 In the To-part of the listing, we see the produced state. The address change is
                 confirmed by the police.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_7.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        {ex:movemap gps:description
+                            (                                                   
+                            {}                                      #From
+                            {}                                      #Between
+
+                            {?x ex:confirmationOfAddressChange true}        #To
+                            step:confirmAddressChange                       #Step name
+                            20160                                 #Duration
+                            0                                        #Monetary cost
+                            0.98                                   #Success
+                            0.97                                   #User satisfaction
+                            )
+                        }
+                        &#x3C;=
+                        {
+                            ?x a o-persoon:Inwoner.
+                            ?x ex:addressChangeDeclared true
+                        }.                                          #Where
+
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 7: Description of step “confirmation of address change” using our internal format based on N3.
+                </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
@@ -395,8 +491,26 @@
                 the target with a node) and qualified value shapes. We plan to further expand our
                 pattern creation mechanism.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_8.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        {
+                            ?stateShape a o-steps:StateShape;
+                                sh:property ?property;
+                                sh:targetClass o-persoon:Inwoner .
+                            ?property sh:path ?path;
+                                             sh:value ?value;
+                                             sh:minCount 1.
+                            }
+                            =&gt;
+                            {
+                            ?stateShape :pattern {var:x ?path ?value} .
+                            }.
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 8: (Simplified) Rule producing a pattern based on a shape description.
+                </figcaption>
             </figure>
             <p>
                 In the description in Listing 7 for which the address change is declared is the same
@@ -445,8 +559,37 @@
                 Euros, we want to have a success rate of the entire workflow of at least 80% and the
                 user satisfaction value should not go below 0.8.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_9.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        {
+                            ?SCOPE gps:findpath
+                                (
+                                    {?x ex:confirmationOfAddressChange true.}
+                                    ?PATH
+                                    ?DURATION
+                                    ?MONETARYCOST
+                                    ?SUCCESS
+                                    ?SATISFACTION
+                                    (
+                                    40320 #Limit for duration (4 weeks)
+                                    20 # Limit for monetary costs
+                                    0.8 # Limit for success rate
+                                    0.8 # limit for user satisfaction
+                                    )
+                                ).
+                            } =&gt; {
+                                    ?x gps:path (?PATH
+                                                        ?DURATION
+                                                        ?MONETARYCOST
+                                                        ?SUCCESS
+                                                        ?SATISFACTION).
+                            }.
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 9: Example goal
+                </figcaption>
             </figure>
             <p>
                 We declare such limits for each workflow because of technical reasons. Since our
@@ -498,8 +641,47 @@
                 asking for personal information since in that case this information is already available
                 in the database.
             </p>
-            <figure>
-                <img src="linked_sources_images/listing_10.png"/>
+            <figure class="listing">
+                <pre class="background">
+                    <code>
+                        :bob gps:path (
+                                        (step:providePersonalInformation
+                                        step:provideMovingData
+                                        step:requestAddressChange
+                                        step:confirmAddressChange
+                                        )
+                                        30160
+                                        4.0
+                                        0.88
+                                        0.88
+                                    ).
+                        :bob gps:path (
+                                        (step:provideMovingData
+                                        step:providePersonalInformation
+                                        step:requestAddressChange
+                                        step:confirmAddressChange
+                                        )
+                                        30160
+                                        4.0
+                                        0.88
+                                        0.88
+                                    ).
+                        :bob gps:path (
+                                        (step:provideMovingData
+                                        step:providePersonalInformation
+                                        step:requestAddressChange
+                                        step:confirmAddressChange
+                                        )
+                                        30160
+                                        4.0
+                                        0.88
+                                        0.88
+                                    ).
+                    </code>
+                </pre>
+                <figcaption>
+                    Listing 10: Example output of path composition.
+                </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
@@ -537,13 +719,23 @@
         justify-content: normal;
     }
 
-    figure {
+    figure.img {
         display: block;
         margin-left: auto;
         margin-right: auto;
         margin-top:  30px;
         margin-bottom: 30px;
         width: 50%;
+    }
+
+    figure.listing {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:  30px;
+        margin-bottom: 30px;
+        width: 70%;
+        text-align: center;
     }
 
     figcaption {
@@ -582,6 +774,18 @@
     .next {
         text-align: center;
         margin-bottom: 30px;
+    }
+
+    pre {
+        text-align: left;
+        overflow: auto;
+        font-weight:bold;
+        height: fit-content;
+    }
+
+    pre.background { 
+        background-color: #ECF0F1; 
+        height:auto;
     }
 </style>
 
