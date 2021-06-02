@@ -127,13 +127,13 @@
                     <h3 class="h3">Listing 1</h3>
                     <pre class="background">
                         <code>
-                            @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-                            @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
-                            @prefix westerlo: &lt;https://example.org/ns/westerlo#&gt; .
-                            @prefix p-plan: &lt;http://purl.org/net/p-plan#&gt; .
-                            @prefix oslo-steps: &lt;https://example.org/ns/oslo-steps#&gt; .
+                            @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
+                            @prefix xsd: &lt;<a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a>&gt; .
+                            @prefix westerlo: &lt;<a href="https://example.org/ns/westerlo#">https://example.org/ns/westerlo#</a>&gt; .
+                            @prefix p-plan: &lt;<a href="http://purl.org/net/p-plan#">http://purl.org/net/p-plan#</a>&gt; .
+                            @prefix oslo-steps: &lt;<a href="https://example.org/ns/oslo-steps#">https://example.org/ns/oslo-steps#</a>&gt; .
 
-                            # Definition of data (each variable could be produced by multiple steps)
+                            <span class="code_comment"># Definition of data (each variable could be produced by multiple steps)</span>
 
                             westerlo:variableGreenWasteContainer40LiterAmount a p-plan:Variable .
                             westerlo:variableGreenWasteContainer120LiterAmount a p-plan:Variable .
@@ -141,7 +141,8 @@
                             westerlo:variableGreenWasteContainerOwnCompostInfo a p-plan:Variable .
                             westerlo:variableGreenWasteContainerCollectionStopInfo a p-plan:Variable .
 
-                            # Definition of steps which provide data
+                            <span class="code_comment"># Definition of steps which provide data</span>
+                            
                             westerlo:provideGreenWasteContainer40LiterAmount a oslo-steps:Step ;
                                 rdfs:label &quot;Aantal 40 liter container(s)&quot;@nl ;
                                 rdfs:label &quot;Amount 40 liter container(s)&quot;@en .
@@ -182,13 +183,13 @@
                     </p>
                     <pre class="background">
                         <code>
-                            @prefix rdfs: &#x3C;http://www.w3.org/2000/01/rdf-schema#&#x3E; .
-                            @prefix xsd: &#x3C;http://www.w3.org/2001/XMLSchema#&#x3E; .
-                            @prefix westerlo: &#x3C;https://example.org/ns/westerlo#&#x3E; .
-                            @prefix p-plan: &#x3C;http://purl.org/net/p-plan#&#x3E; .
-                            @prefix oslo-steps: &#x3C;https://example.org/ns/oslo-steps#&#x3E; .
+                            @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
+                            @prefix xsd: &lt;<a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a>&gt; .
+                            @prefix westerlo: &lt;<a href="https://example.org/ns/westerlo#">https://example.org/ns/westerlo#</a>&gt; .
+                            @prefix p-plan: &lt;<a href="http://purl.org/net/p-plan#">http://purl.org/net/p-plan#</a>&gt; .
+                            @prefix oslo-steps: &lt;<a href="https://example.org/ns/oslo-steps#">https://example.org/ns/oslo-steps#</a>&gt; .
                             
-                            # Green GFT group 2: own compost
+                            <span class="code_comment"># Green GFT group 2: own compost</span>
                             
                             westerlo:provideGreenWasteContainerInfo a oslo-steps:Step ;
                                 rdfs:label &#x22;Groene GFT container(s)&#x22;@nl ;
@@ -228,15 +229,19 @@
                     <h3 class="h3">Listing 3</h3>
                     <pre class="background">
                         <code>
-                            @prefix rdfs: &#x3C;http://www.w3.org/2000/01/rdf-schema#&#x3E; .
-                            @prefix xsd: &#x3C;http://www.w3.org/2001/XMLSchema#&#x3E; .
-                            @prefix westerlo: &#x3C;https://example.org/ns/westerlo#&#x3E; .
-                            @prefix app: &#x3C;https://example.org/ns/app#&#x3E; .
-                            @prefix p-plan: &#x3C;http://purl.org/net/p-plan#&#x3E; .
-                            @prefix sh: &#x3C;http://www.w3.org/ns/shacl#&#x3E; .
-                            @prefix oslo-steps: &#x3C;https://example.org/ns/oslo-steps#&#x3E; .
+
+                            @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
+                            @prefix xsd: &lt;<a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a>&gt; .
+                            @prefix westerlo: &lt;<a href="https://example.org/ns/westerlo#">https://example.org/ns/westerlo#</a>&gt; .
+                            @prefix p-plan: &lt;<a href="http://purl.org/net/p-plan#">http://purl.org/net/p-plan#</a>&gt; .
+                            @prefix oslo-steps: &lt;<a href="https://example.org/ns/oslo-steps#">https://example.org/ns/oslo-steps#</a>&gt; .
+
+                            @prefix app: &#x3C;<a href="https://example.org/ns/app#">https://example.org/ns/app#</a>&#x3E; .
+                            @prefix sh: &#x3C;<a href="http://www.w3.org/ns/shacl#">http://www.w3.org/ns/shacl#</a>&#x3E; .
                             
-                            # A shape defining valid values for a provided value, produced by a step
+                            
+                            <span class="code_comment"># A shape defining valid values for a provided value, produced by a step</span>
+                            
                             westerlo:greenWasteContainer40LiterConstraints a sh:NodeShape ;
                                 sh:targetNode westerlo:variableGreenWasteContainer40LiterAmount ;
                                     sh:property [
@@ -260,15 +265,16 @@
                     <h3 class="h3">Listing 4</h3>
                     <pre class="background">
                         <code>
-                            @prefix rdfs: &#x3C;http://www.w3.org/2000/01/rdf-schema#&#x3E; .
-                            @prefix xsd: &#x3C;http://www.w3.org/2001/XMLSchema#&#x3E; .
-                            @prefix westerlo: &#x3C;https://example.org/ns/westerlo#&#x3E; .
-                            @prefix app: &#x3C;https://example.org/ns/app#&#x3E; .
-                            @prefix cccev: &#x3C;http://data.europa.eu/m8g/&#x3E; .
-                            @prefix oslo-steps: &#x3C;https://example.org/ns/oslo-steps#&#x3E; .
+                            @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
+                            @prefix xsd: &lt;<a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a>&gt; .
+                            @prefix westerlo: &lt;<a href="https://example.org/ns/westerlo#">https://example.org/ns/westerlo#</a>&gt; .
+                            @prefix app: &#x3C;<a href="https://example.org/ns/app#">https://example.org/ns/app#</a>&#x3E; .
+                            @prefix cccev: &#x3C;<a href="http://data.europa.eu/m8g">http://data.europa.eu/m8g</a>/&#x3E; .
+                            @prefix oslo-steps: &lt;<a href="https://example.org/ns/oslo-steps#">https://example.org/ns/oslo-steps#</a>&gt; .
 
                             
-                            # CRITERION: Green GFT (biological) waste container info
+                            <span class="code_comment"># CRITERION: Green GFT (biological) waste container info</span>
+
                             westerlo:criterionGreenWasteContainerInfo a cccev:Criterion ;
                                 rdfs:label "Groene GFT container(s)"@nl ;
                                 rdfs:label "Green GFT waste container(s)"@en ;
@@ -277,7 +283,8 @@
                                     westerlo:greenWasteContainerGroup,
                                     westerlo:greenWasteOwnGroup .
                             
-                            # Green GFT group 1: request container(s)
+                            <span class="code_comment"># Green GFT group 1: request container(s)</span>
+                            
                             westerlo:greenWasteContainerGroup a cccev:RequirementGroup ;
                                 cccev:hasCriterionRequirement
                                     westerlo:greenWasteContainer40Amount,
@@ -318,22 +325,23 @@
                     <h3 class="h3">Listing 5</h3>
                     <pre class="background">
                         <code>
-                            @prefix rdfs: &#x3C;http://www.w3.org/2000/01/rdf-schema#&#x3E; .
-                            @prefix xsd: &#x3C;http://www.w3.org/2001/XMLSchema#&#x3E; .
-                            @prefix westerlo: &#x3C;https://example.org/ns/westerlo#&#x3E; .
-                            @prefix app: &#x3C;https://example.org/ns/app#&#x3E; .
-                            @prefix cccev: &#x3C;http://data.europa.eu/m8g/&#x3E; .
-                            @prefix oslo-steps: &#x3C;https://example.org/ns/oslo-steps#&#x3E; .
-                            @prefix cv: &#x3C;http://data.europa.eu/m8g/&#x3E; .
-                            @prefix frbr: &#x3C;http://purl.org/vocab/frbr/core#&#x3E; .
-                            @prefix p-plan: &#x3C;http://purl.org/net/p-plan#&#x3E; .
-                            @prefix prov: &#x3C;http://www.w3.org/ns/prov#&#x3E; .
-                            @prefix foaf: &#x3C;http://xmlns.com/foaf/0.1/&#x3E; .
+
+                            @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
+                            @prefix xsd: &lt;<a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a>&gt; .
+                            @prefix westerlo: &lt;<a href="https://example.org/ns/westerlo#">https://example.org/ns/westerlo#</a>&gt; .
+                            @prefix app: &#x3C;<a href="https://example.org/ns/app#">https://example.org/ns/app#</a>&#x3E; .
+                            @prefix cccev: &#x3C;<a href="http://data.europa.eu/m8g">http://data.europa.eu/m8g</a>/&#x3E; .
+                            @prefix oslo-steps: &lt;<a href="https://example.org/ns/oslo-steps#">https://example.org/ns/oslo-steps#</a>&gt; .
+                            @prefix p-plan: &lt;<a href="http://purl.org/net/p-plan#">http://purl.org/net/p-plan#</a>&gt; .
+                            @prefix frbr: &#x3C;<a href="http://purl.org/vocab/frbr/core#">http://purl.org/vocab/frbr/core#</a>&#x3E; .
+                            @prefix prov: &#x3C;<a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>&#x3E; .
+                            @prefix foaf: &#x3C;<a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>&#x3E; .
                             
-                            # The description of a user
+                            <span class="code_comment"># The description of a user</span>
                             app:me a foaf:Agent .
 
-                            # The representation of an executed step (One 40 liter container)
+                            <span class="code_comment"># The representation of an executed step (One 40 liter container)</span>
+
                             app:responseGreenContainer40 a oslo-steps:ExecutedStep ;
                                 p-plan:correspondsToStep
                                     westerlo:provideGreenWasteContainer40LiterAmount ;
@@ -342,7 +350,8 @@
                                 prov:startedAtTime &#x22;2019-03-03T13:37:00Z&#x22;^^xsd:dateTime ;
                                 prov:endedAtTime &#x201C;2019-03-03T13:38:14Z&#x201D;^^xsd:dateTime .
                             
-                            # The value the user provided (which is targeted by the shape from figure 3)
+                            <span class="code_comment"># The value the user provided (which is targeted by the shape from figure 3)</span>
+                            
                             app:dataGreenWasteContainer40 a prov:Entity, cccev:RequirementResponse ;
                                 p-plan:correspondsToVariable
                                     westerlo:variableGreenWasteContainer40LiterAmount ;
@@ -471,6 +480,10 @@
     pre.background { 
         background-color: #ECF0F1; 
         height:auto;
+    }
+
+    .code_comment {
+        color: #7ED956;
     }
 </style>
 

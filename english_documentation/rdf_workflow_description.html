@@ -70,12 +70,13 @@
             <figure class="listing">
                 <pre class="background">
                     <code>
-                        @prefix​ o-steps​ : &lt;​ https://fast.ilabt.imec.be/ns/oslo-steps#&gt;​ .
-                        @prefix​ xl​ : &lt;​ http​ : ​ //www.w3.org/2008/05/skos-xl#&gt;​ .
-                        @prefix​ state​ : &lt;​ https​ : ​ //fast.ilabt.imec.be/api/v5/states#&gt;​ .
-                        @prefix​ step​ : &lt;​ https​ : ​ //fast.ilabt.imec.be/api/v5/steps#&gt;​ .
+                        @prefix​ o-steps​ : &lt;​<a href="https://fast.ilabt.imec.be/ns/oslo-steps#">https://fast.ilabt.imec.be/ns/oslo-steps#</a>&gt;​ .
+                        @prefix​ xl​ : &lt;​<a href="http​://www.w3.org/2008/05/skos-xl#">http​://www.w3.org/2008/05/skos-xl#</a>&gt;​ .
+                        @prefix​ state​ : &lt;<a href="https​://fast.ilabt.imec.be/api/v5/states#">https​://fast.ilabt.imec.be/api/v5/states#</a>&gt;​ .
+                        @prefix​ step​ : &lt;​<a href="https​://fast.ilabt.imec.be/api/v5/steps#">https​://fast.ilabt.imec.be/api/v5/steps#</a>&gt;​ .
                         
-                        # Journey level steps: collect address changed data, and declare it
+                        <span class="code_comment"># Journey level steps: collect address changed data, and declare it</span>
+
                         step​ :collectAddressChangeData a ​ o-steps​ :JourneyLevelStep ;
                             o-steps​ :hasDescription [ ​ xl​ :literalForm ​ "Data adreswijziging"​ @nl​ ] ;
                             o-steps​ :requiresState ​ o-steps​ :emptyState ;
@@ -90,7 +91,8 @@
                                                                  state​ :citizenEmailAddress ;
                             o-steps​ :producesState ​ state​ :addressChangeDeclared .
 
-                        # Container level steps: provide personal data, new address, and contact info
+                        <span class="code_comment"># Container level steps: provide personal data, new address, and contact info</span>
+                        
                         step​ :providePersonalData a ​ o-steps​ :ContainerLevelStep ;
                             o-steps​ :hasDescription [ ​ xl​ :literalForm ​ "Verstrek persoonlijke gegevens"​ @nl​ ] ;
                             o-steps​ :requiresState ​ o-steps​ :emptyState ;
@@ -106,7 +108,8 @@
                             o-steps​ :requiresState ​ o-steps​ :emptyState ;
                             o-steps​ :producesState ​ state​ :citizenEmailAddress .
 
-                        # Component level steps: provide national number, street name, etc.
+                        <span class="code_comment"># Component level steps: provide national number, street name, etc.</span>
+
                         step​ :provideCitizenNationalNumberManually a ​ o-steps​ :ComponentLevelStep ;
                             o-steps​ :hasDescription [ ​ xl​ :literalForm ​ "Rijksregister inwoner"​ @nl​ ] ;
                             o-steps​ :requiresState ​ o-steps​ :emptyState ;
@@ -140,10 +143,10 @@
             <figure class="listing">
                 <pre class="background">
                     <code>
-                        @prefix​ o-steps​ : &lt;​ https://fast.ilabt.imec.be/ns/oslo-steps#&gt;​ .
-                        @prefix​ xl​ : &lt;​ http​ : ​ //www.w3.org/2008/05/skos-xl#&gt;​ .
-                        @prefix​ state​ : &lt;​ https​ : ​ //fast.ilabt.imec.be/api/v5/states#&gt;​ .
-                        @prefix​ step​ : &lt;​ https​ : ​ //fast.ilabt.imec.be/api/v5/steps#&gt;​ .
+                        @prefix​ o-steps​ : &lt;​<a href="https://fast.ilabt.imec.be/ns/oslo-steps#">https://fast.ilabt.imec.be/ns/oslo-steps#</a>&gt;​ .
+                        @prefix​ xl​ : &lt;​<a href="http​://www.w3.org/2008/05/skos-xl#">http​://www.w3.org/2008/05/skos-xl#</a>&gt;​ .
+                        @prefix​ state​ : &lt;<a href="https​://fast.ilabt.imec.be/api/v5/states#">https​://fast.ilabt.imec.be/api/v5/states#</a>&gt;​ .
+                        @prefix​ step​ : &lt;​<a href="https​://fast.ilabt.imec.be/api/v5/steps#">https​://fast.ilabt.imec.be/api/v5/steps#</a>&gt;​ .
 
                         state​ :citizenEmailAddress a ​ o-steps​ :State ;
                             rdfs​ :label ​ "Inwoner email address"​ @nl​ ;
@@ -172,16 +175,17 @@
             </figure>
             <figure class="listing">
                 <pre class="background">
-                    <code>
-                        @prefix rdfs​ : &lt;​ http​ : ​ //www.w3.org/2000/01/rdf-schema#&gt;​ .
-                        @prefix o-steps​ : &lt;​ https​ : ​ //fast.ilabt.imec.be/ns/oslo-steps#&gt;​ .
-                        @prefix ex​ : &lt;​ http​ : ​ //example.org/ns/example#&gt;​ .
-                        @prefix locn​ : &lt;​ http​ : ​ //www.w3.org/ns/locn#&gt;​ .
+                    <code>\
+                        @prefix​ o-steps​ : &lt;​<a href="https://fast.ilabt.imec.be/ns/oslo-steps#">https://fast.ilabt.imec.be/ns/oslo-steps#</a>&gt;​ .
+                        @prefix rdfs​ : &lt;<a href="​http​://www.w3.org/2000/01/rdf-schema#">http​://www.w3.org/2000/01/rdf-schema#</a>&gt;​ .
+                        @prefix ex​ : &lt;<a href="​http​://example.org/ns/example#">http​://example.org/ns/example#</a>&gt;​ .
+                        @prefix locn​ : &lt;​<a href="http​://www.w3.org/ns/locn#">http​://www.w3.org/ns/locn#</a>&gt;​ .
 
-                        @prefix​ ​ shape​ : &lt;​ https​ : ​ //fast.ilabt.imec.be/api/v5/shapes#&gt;​ .
+                        @prefix​ ​ shape​ : &lt;​<a href="https​://fast.ilabt.imec.be/api/v5/shapes#">https​://fast.ilabt.imec.be/api/v5/shapes#</a>&gt;​ .
 
-                        # Shapes
-                        ## E-mail
+                        <span class="code_comment"># Shapes</span>
+                        <span class="code_comment">## E-mail</span>
+
                         shape​ :emailAddressShape a ​ o-steps​ :StateShape ;
                             rdfs​ :label ​ "A citizen's email"​ @en​ ;
                             sh​ :targetClass ​ o-persoon​ :Inwoner ;
@@ -194,7 +198,8 @@
                             sh​ :pattern ​ "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"​ ;
                             sh​ :minCount ​ 1 ​ .
 
-                        ## Street name
+                        <span class="code_comment">## Street name</span>
+
                         shape​ :citizenNewAddressStreetShape a ​ o-steps​ :StateShape ;
                             rdfs​ :label ​ "Street of new address"​ @en​ ;
                             sh​ :targetClass ​ o-persoon​ :Inwoner ;
@@ -207,7 +212,8 @@
                             sh​ :datatype ​ xsd​ :string ;
                             sh​ :maxCount ​ 1 ​ ; ​ sh​ :minCount ​ 1 ​ .
 
-                        ## Postcode
+                        <span class="code_comment">## Postcode</span>
+
                         shape​ :citizenNewAddressPostCodeShape a ​ o-steps​ :StateShape ;
                             rdfs​ :label ​ "Postcode of new address"​ @en​ ;
                             rdfs​ :comment ​ "Postcode of new address"​ @en​ ;
@@ -222,7 +228,8 @@
                             sh​ :datatype ​ xsd​ :string ;
                             sh​ :maxCount ​ 1 ​ ; ​ sh​ :minCount ​ 1 ​ .
                         
-                        ## Street number
+                        <span class="code_comment">## Street number</span>
+
                         shape​ :citizenNewAddressStreetNumberShape a ​ o-steps​ :StateShape ;
                             rdfs​ :label ​ "Street number of new address"​ @en​ ;
                             rdfs​ :comment ​ "Street number of new address"​ @en​ ;
@@ -237,7 +244,8 @@
                             sh​ :datatype ​ xsd​ :string ;
                             sh​ :maxCount ​ 1 ​ ; ​ sh​ :minCount ​ 1 ​ .
                             
-                        ## National number
+                        <span class="code_comment">## National number</span>
+                        
                         shape​ :nationalNumberBelgiumShape a ​ o-steps​ :StateShape ;
                             rdfs​ :label ​ "Householder national number"​ @en​ ;
                             rdfs​ :comment ​ "User with valid Belgian national number"​ @en​ ;
@@ -752,6 +760,10 @@
     pre.background { 
         background-color: #ECF0F1; 
         height:auto;
+    }
+
+    .code_comment {
+        color: #7ED956;
     }
 
 </style>
