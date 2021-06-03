@@ -57,83 +57,94 @@
     <div class="layout layout--wide">
         <ul class="nav_bar">
             <li><a class="button" href="./intro.html">Intro</a></li>
-            <li><a class="button" href="./overview.html">OSLO-STEPS Overview</a></li>
-            <li><a class="button" href="./domain_model.html">Domain Model</a></li>
-            <li><a class="button" href="./linked_sources_overview.html">Linked Sources Overview</a></li>
-            <li><a class="button" href="./rdf_workflow_description.html">RDF Workflow Description</a></li>
+            <li><a class="button" href="./overview.html">Overzicht OSLO-STEPS</a></li>
+            <li><a class="button" href="./domain_model.html">Domein Model</a></li>
+            <li><a class="button" href="./linked_sources_overview.html">Overzicht Linked Sources</a></li>
+            <li><a class="button" href="./rdf_workflow_description.html">RDF Workflow Beschrijving</a></li>
         </ul>
         <h1 class="h1">OSLO-STEPS Overview</h1>
         <h2 class="h2">Introduction</h2>
         <p>
-           Suppose we have a fictional person, let's call him John, who wants to move in the near future. In order for John to move, 
-           there's a wide range of government steps he has to complete. At the moment, all these rules are hardcoded in the Public Service 
-           System, but there's a few problems with this approach: 
+            Stel dat we een fictief persoon hebben, Tom, die in de nabije toekomst wil verhuizen. 
+            Om Tom te laten verhuizen, moet hij verschillende stappen van de overheid doorlopen. 
+            Op dit moment zijn al deze regels hardgecodeerd in de servers van de openbare diensten, maar er zijn een aantal problemen met deze aanpak:
         </p>
         <br/>
         <ol class="bullet-list bullet-list--tag">
-          <li class="bullet-list__item">Duplicate effort for citizens (“It’s as if every next form asks for the same things”)</li>
-          <li class="bullet-list__item">Not personalized (“I can’t remember how many times I’ve been asked to fill in my birth date”)</li>
-          <li class="bullet-list__item">Outdated applications</li>
+          <li class="bullet-list__item">Redundante formulieren voor de burgers ("Het is alsof in elk formulier om dezelfde dingen wordt gevraagd")</li>
+          <li class="bullet-list__item">Niet gepersonaliseerd ("Ik kan me niet herinneren hoe vaak mij is gevraagd mijn geboortedatum in te vullen")</li>
+          <li class="bullet-list__item">Gedateerde applicaties</li>
         </ol>
         <br/>
         <p>
-          As you can probably predict, this is not a scalable, future-proof solution. It's difficult for the end user, who has to go through a lot of repetitive steps, 
-          but it's also not transparent for the policy maker, because government regulations are becoming more and more cluttered.
+            Zoals verwacht, is dit geen schaalbare, toekomstbestendige oplossing. 
+            Het is moeilijk voor de eindgebruiker, die een heleboel repetitieve stappen moet doorlopen, maar het is ook niet transparant voor de beleidsmaker, 
+            aangezien de regelgeving van de overheid steeds onoverzichtelijker wordt.
         </p>
     </div>
     <br/>
     <div class="layout layout--wide">
       <h2 class="h2">The FAST project</h2>
       <p>
-        That's where the idea of the FAST project began to take root: "Generate workflows on-the-fly from more fine-grained steps". Every end user gets a seamless and tailored user experience, 
-        the policy maker has an easy way to manage regulations and the application owner can easily keep track of the most up-to-date data available. 
+        Dat is waar het idee van het FAST project ontstond: "Genereer workflows on-the-fly gebaseerd op kleine, simpele stappen". 
+        Elke eindgebruiker krijgt een naadloze en op maat gesneden gebruikerservaring, de beleidsmaker heeft een eenvoudige manier om de regelgeving 
+        te beheren en de applicatie-eigenaar kan gemakkelijk de meest actuele gegevens bijhouden.
       </p>
       <br/>
       <img src="overview_images/nutshell.png" alt="FAST in a nutshell"/>
       <br/>
       <br/>
-      <p>As you can see in the image above, the FAST project is based around four core building blocks</p>
+      <p>Zoals u in de afbeelding hierboven kunt zien, is het FAST-project gebaseerd op vier kernbouwstenen</p>
       <br/>
       <h3 class="h3">1. OSLO-STEPS</h3>
       <p>
-        Composing a customer journey, e.g. moving into a new house, has to consist of fine-grained interoperable steps. Luckily these interoperable vocabularies already exist. In Flanders we 
-        have the OSLO project (Open Standards for Linked Organizations), with vocabularies like 'OSLO-Persoon', 'OSLO-Organisatie'... to describe personal data. Higher up the hierarchy there's 
-        the European ISA (Interoperability solutions for public administrations, businesses and citizens), with 'Core Person Vocabulary', 'Core Public Service Vocabulary'... 
-        And finally there are common standards, like 'Schema.org' or 'W3C Vocabularies'. They are interoperable and some of them are an implementation of the other, e.g. OSLO-Persoon 
-        is derived from the European 'Core Person Vocabulary'. 
-
-        The purpose of OSLO-STEPS is to describe user journeys as sequences of conditional steps for governmental public services, from the user perspective. 
-        As a possible application, a planning-engine is supposed to build plans given the steps to reach a goal. OSLO-STEPS consists of three main things: the steps, the status and the target.
-        For example, if a citizen wants to move to another city, example steps are: filling in their personal information, submitting a waste request... A status is something we already know, 
-        e.g. their telephone number. And the final goal is then to move and request grants. These OSLO-STEPS are based on existing vocabularies, like the OSLO vocabularies, ISA, schema.org... 
-        All these procedures are decentralized and applicable on the use case and many sub-procedures are available in other procedures. These decentralized procedures can be grouped together 
-        to create a seamless user experience. 
+        Het samenstellen van een customer journey, bv. een verhuis, moet bestaan uit fijnkorrelige interoperabele stappen. Gelukkig bestaan deze interoperabele vocabularia al. 
+        In Vlaanderen hebben we het OSLO project (Open Standaarden voor Gelinkte Organisaties), met vocabularia zoals 'OSLO-Persoon', 'OSLO-Organisatie'... om persoonlijke gegevens te beschrijven. 
+        Hoger in de hiërarchie staat de Europese ISA (Interoperability solutions for public administrations, businesses and citizens), met het 'Core Person Vocabulary', 'Core Public Service Vocabulary'... 
+        En ten slotte zijn er gemeenschappelijke standaarden, zoals 'schema.org' of 'W3C Vocabularies'. Deze zijn interoperabel en sommige zijn een implementatie van de andere, 
+        bv. OSLO-Persoon is afgeleid van het Europese 'Core Person Vocabulary'. 
+      </p>
+      <br/>
+      <p>
+        Het doel van OSLO-STEPS is het beschrijven van customer journeys als opeenvolgingen van voorwaardelijke stappen voor overheidsdiensten, 
+        vanuit het perspectief van de gebruiker. Als mogelijke toepassing wordt een planning-engine verondersteld deze stappen te combineren om een bepaald doel te bereiken.
+      </p>
+      <br/>
+      <p>
+        OSLO-STEPS bestaat uit drie kernpunten: de stappen, de status en het doel. Bijvoorbeeld, als een burger wil verhuizen naar een andere stad, 
+        dan zijn de mogelijke stappen: het invullen van de persoonlijke gegevens, het indienen van een afvalaanvraag... Een status is iets wat we al weten, 
+        zoals het telefoonnummer. En het uiteindelijke doel is dan om te verhuizen en subsidies aan te vragen. Deze OSLO-STEPS zijn gebaseerd op bestaande 
+        vocabularia, zoals de OSLO vocabularia, ISA, schema.org... Al deze procedures zijn gedecentraliseerd en toepasselijk op de use case waarbij vele sub-procedures 
+        beschikbaar zijn in andere procedures. Deze gedecentraliseerde procedures kunnen worden gegroepeerd om een vlotte gebruikerservaring te creëren.
       </p>
       <br/>
       <h3 class="h3">2. Journey Composer</h3>
       <p>
-        The Journey Composer uses web reasoning to generate a personalised customer journey. Users won't have to fill in the same information twice by removing duplicates 
-        and linking authentic sources. The Journey Composer also takes care of generating alternatives. A user can submit his personal details by filling in a form on a website, but 
-        another option is using his ID card reader. The different options do have some metrics associated with them, e.g. a cost, a duration, a success rate... These metrics decide 
-        the best possible options for the user. 
+        De Journey Composer maakt gebruik van web reasoning om een gepersonaliseerde customer journey te genereren. Gebruikers hoeven geen twee keer 
+        dezelfde informatie in te vullen door dubbels te verwijderen en de originele bronnen te koppelen. De Journey Composer zorgt ook voor het 
+        genereren van alternatieven. Een gebruiker kan zijn persoonlijke gegevens doorgeven d.m.v. een online formlier, maar een 
+        andere optie is het gebruik van zijn ID kaartlezer. Aan de verschillende opties zijn enkele metrieken gekoppeld, bv. een kostprijs, een duur, 
+        een slaagkans... Deze metriek bepaalt de best mogelijke opties voor de gebruiker.
       </p>
       <br/>
       <h3 class="h3">3. UI Generator</h3>
       <p>
-        The user needs to have the option of choosing between multiple different interfaces. If you're accustomed to using an online form of your local munincipality, 
-        a UI can easily be integrated in the website. Other options are a Chatbot on the website of Flanders, a Voice UI on the website of the Federal Government... The key is that 
-        these portals are easily accessible and simple to integrate in existing platforms. The user has many options and can choose the best one suited for their needs. 
+        De gebruiker moet kunnen kiezen tussen meerdere verschillende interfaces. Als je gewend bent om een online formulier van je gemeente te gebruiken, 
+        kan een UI makkelijk geïntegreerd worden in de website. Andere opties zijn bv. een chatbot op de website van de Vlaamse overheid, een Voice UI op de 
+        website van de federale overheid... Het belangrijkste is dat deze portalen gemakkelijk toegankelijk zijn en eenvoudig integreerbaar in bestaande platformen. 
+        De gebruiker heeft de mogelijkheid om te kiezen uit de opties wat het beste bij zijn behoeften past.
       </p>
       <br/>
       <h3 class="h3">4. Feedback loop</h3>
       <p>
-        What if the application could be smart enough to automatically improve its user experience based on the user’s behaviour? Through artificial intelligence, the process of completing 
-        a journey can be optimized and fine-tuned to the user's needs. The different options while completing a journey will be recommended based on the user's previous behaviour, so the user 
-        will face a tailored user experience. 
+        Wat als de applicatie slim genoeg zou zijn om de gebruikerservaring automatisch te verbeteren op basis van het gedrag van de gebruiker? 
+        Met behulp van artificiële intelligentie kan het afleggen van een traject worden geoptimaliseerd en afgestemd op de behoeften van de gebruiker. 
+        De verschillende opties tijdens het afleggen van een traject zullen worden aanbevolen op basis van het eerdere gedrag van de gebruiker, 
+        zodat deze een gebruikerservaring op maat krijgt.
       </p>
     </div>
     <div class="next">
-        <a class="button" href="./domain_model.html">Next: OSLO-STEPS Domain Model</a>
+        <a class="button" href="./domain_model.html">Volgende: OSLO-STEPS Domein Model</a>
     </div>
 </main>
 
