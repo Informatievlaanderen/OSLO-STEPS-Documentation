@@ -63,84 +63,72 @@
             <li><a class="button" href="./rdf_workflow_description.html">RDF Workflow Beschrijving</a></li>
         </ul>
 
-        <h1 class="h1">OSLO-STEPS Domain Model</h1>
+        <h1 class="h1">OSLO-STEPS Domein Model</h1>
         <div class="h2_alinea">
-            <h2 class="h2">Introduction</h2>
+            <h2 class="h2">Introductie</h2>
             <p>
-                The FAST OSLO-STEPS project resulted in an RDF-based vocabulary,
-                which structure is illustrated in Figure 1, and which use is demonstrated in Listings 1-5.
-                Increase interoperability by reusing existing concepts, is one aim of initiatives like OSLO or
-                ISA². We achieved that by mostly reusing existing concepts of the CPSV-AP and CCCEV
-                vocabulary. Thus our model extends the existing models of public services and
-                criterion/evidence-based communication, with a user perspective expressed as a “step”
-                class.
+                Uit het FAST OSLO-STEPS project ontstond een RDF-gebaseerd vocabularium, waarvan de structuur wordt geïllustreerd in Figuur 1, 
+                en waarvan het gebruik wordt gedemonstreerd in Voorbeeld 1-5. Interoperabiliteit verhogen door bestaande concepten te hergebruiken, 
+                is één van de doelstellingen van initiatieven zoals OSLO of ISA. Het OSLO-STEPS vocabularium hergebruikt voornamelijk bestaande concepten van de 
+                CPSV-AP en CCCEV vocabularia. Ons model breidt dus de bestaande modellen van overheidsdiensten uit, waarvan gebruikt wordt gemaakt van de 'step'-klasse.
             </p>
         </div>
         <div class="h2_alinea">
-            <h2 class="h2">Domain Model</h2>
+            <h2 class="h2">Domein Model</h2>
             <figure class="img">
                 <img src="domain_model_images/figure_1.png"/>
                 <figcaption>
-                    Figure 1: Developed OSLO-STEPS vocabulary. The blue boxes represent newly defined
-                    classes, green boxes represent concepts from existing vocabularies, such as CPSV-AP and
-                    CCCEV.
+                    Figuur 1: Het OSLO-STEPS-vocabularium. De blauwe vakken staan voor nieuw gedefinieerde klassen, 
+                    de groene vakken voor concepten uit bestaande vocabularia, zoals CPSV-AP en CCCEV.
                 </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
-            <h2 class="h2">Example use</h2>
+            <h2 class="h2">Voorbeeld afvalinzameling:</h2>
             <p>
-                We will work through an example where OSLO-STEPS is used as a representation for waste collection in 
-                the municipality of Westerlo (see Figure 2). This form consists of several fields of different kinds which needs to be filled in by the citizen. 
-                Providing information for each of the input fields can be seen as the most fine granular steps. The kind of form and its complexity
-                serves as a representative example of steps for the FAST project.
+                We zullen werken a.d.h.v. een voorbeeld waarbij OSLO-STEPS wordt gebruikt als representatie voor afvalinzameling in de 
+                gemeente Westerlo (zie figuur 2). Dit formulier bestaat uit een aantal verschillende velden die door 
+                de burger moet worden ingevuld. Elk van de invoervelden kan worden gezien als een van de kleinste bouwblokjes (of step) in OSLO-STEPS. 
+                Dit formulier is een representatieve weergave van een use case voor OSLO-STEPS. 
             </p>
             <figure class="img">
                 <img src="domain_model_images/figure_2.png"/>
                 <figcaption>
-                    Figure 2: The form to request waste collection from the city of Westerlo. Different kinds of
-                    input with different constraints: (1) Free text fields, (2) A citizen’s national number as
-                    structured pattern of digits (3) Fixed set of choices, (4, 5) Alternative options.
+                    Figuur 2: Het formulier om afvalophaling aan te vragen bij de stad Westerlo. 
+                    Het bevat verschillende soorten invoervelden met verschillende restricties: (1) Vrije tekstvelden, 
+                    (2) Het rijksregisternummer van een burger als gestructureerd patroon van cijfers, 
+                    (3) Vaste reeks keuzemogelijkheden, (4, 5) Alternatieve opties.
                 </figcaption>
             </figure>
             <p>
-                In the following, we describe some challenges the form poses, and how that might influence
-                the OSLO-STEPS model. The form consists of different kind of inputs. Free text fields (Figure
-                2, (1)) are used to provide information regarding the applicant. From the perspective of
-                OSLO-STEPS, these kind of input fields don’t pose any particular challenge. In fact, existing
-                OSLO models already offer the possibility to express addresses or names.
+                We zullen enkele uitdagingen beschrijven die het formulier bevat, en hoe die het OSLO-STEPS-model kunnen beïnvloeden. 
+                Het formulier bestaat uit verschillende invoervelden. Vrije tekstvelden (figuur 2, (1)) worden gebruikt om informatie 
+                over de aanvrager te verstrekken. Vanuit het standpunt van OSLO-STEPS vormen dit soort invoervelden geen bijzondere uitdaging. 
+                Bestaande OSLO-modellen bieden reeds de mogelijkheid om adressen of namen in te vullen.
             </p>
             <br/>
             <p>
-                Structured input (Figure 2, (2)) is used to provide e.g. the national number of the citizen. Data
-                described using OSLO, is by definition structured. In case this structured input is provided
-                directly by the user via an user interface (UI), it needs to be checked whether the input
-                conforms to the stated constraints, e.g. a pattern of digits. However, state-of-the-art user
-                interfaces usually offer means to implement such constraint checking. Furthermore, existing
-                RDF-based languages, such as the W3C recommendation <a href="https://www.w3.org/TR/shacl/">SHACL</a>, can be used to
-                describe constraints on an RDF-based model like OSLO.
+                Gestructureerde invoer (figuur 2, (2)) wordt gebruikt om bv. het rijksregisternummer van de burger te verstrekken. De gegevens
+                die door OSLO worden beschreven, zijn per definitie gestructureerd. Indien deze gestructureerde invoer
+                rechtstreeks door de gebruiker via een gebruikersinterface (UI) wordt verstrekt, moet worden nagegaan of de invoer
+                voldoet aan de restricties, bv. een patroon van cijfers. Geavanceerde gebruikersinterfaces bieden gewoonlijk geen middelen 
+                om een dergelijke controle uit te voeren. Bestaande RDF-gebaseerde talen, zoals de W3C aanbeveling <a href="https://www.w3.org/TR/shacl/">SHACL</a>, 
+                kunnen worden gebruikt om beperkingen toe te voegen aan een RDF-gebaseerd model zoals OSLO. Vaste keuzemogelijkheden (figuur 2, (3)) brengen soortgelijke uitdagingen met zich mee als gestructureerde invoer.
             </p>
             <br/>
             <p>
-                Fixed set of choices (Figure 2, (3)) pose similar challenges such as the discussed structured
-                input.
-            </p>
-            <br/>
-            <p>
-                One of the biggest challenges are possible alternatives (Figure 2, (4)). Existing vocabularies
-                like <a href="https://joinup.ec.europa.eu/solution/core-criterion-and-core-evidence-vocabulary">CCCEV</a> offer the possibility to express alternative options. 
-                However, from the form itself it is not clear which combination of input fields is valid. It seems invalid, that biological
-                waste containers are requested, but at the same time it is indicated at (5) that no biological
-                waste container should be collected anymore. Yet this constraint is stated nowhere. Only
-                with human-reasoning someone could infer that option (5) should only be used together with
-                the alternative (4). Strictly speaking, that no biological waste container should be picked up,
-                because the applicant composts the waste by himself. Since such a constraint is stated
-                nowhere, subjectively inferring such knowledge remains uncertain.
+                Een grote uitdaging is het aanbod aan mogelijke alternatieve opties (figuur 2, (4)). Bestaande vocabularia
+                zoals <a href="https://joinup.ec.europa.eu/solution/core-criterion-and-core-evidence-vocabulary">CCCEV</a> bieden de mogelijkheid om alternatieve opties uit te drukken. 
+                Uit het formulier zelf wordt echter niet duidelijk welke combinatie van invoervelden geldig is. Men kan ervoor kiezen om zelf 
+                GFT te composteren, maar tegelijkertijd wordt bij (5) aangegeven dat geen GFT containers meer mogen worden ingezameld. 
+                Toch wordt deze beperking nergens vermeld. Alleen m.b.v gezond verstand zou iemand kunnen afleiden dat optie (5) alleen samen mag worden gebruikt met
+                het alternatief (4). Dat dus geen enkele GFT container zou mogen worden opgehaald, omdat de aanvrager het afval zelf composteert. Aangezien zo'n beperking
+                nergens wordt aangegeven, blijft het afleiden van dergelijke kennis onzeker.
             </p>
             <br/>
             <div class="h3_alinea">
                 <figure class="listing">
-                    <h3 class="h3">Listing 1</h3>
+                    <h3 class="h3">Voorbeeld 1</h3>
                     <pre class="background">
                         <code>
                             @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
@@ -182,20 +170,20 @@
                         </code>
                     </pre>
                     <figcaption>
-                        Listing 1: The OSLO-STEPS representation of steps providing data for one of the steps in the form shown in figure 2.
+                        Voorbeeld 1: De OSLO-STEPS representatie voor enkele stappen uit figuur 2.
                     </figcaption>
                 </figure>
             </div>
             </div>
             <div class="h3_alinea">
                 <figure class="listing">
-                    <h3 class="h3">Listing 2</h3>
+                    <h3 class="h3">Voorbeeld 2</h3>
                     <p>
-                        We demonstrate in listing 2 the definition of one of the steps from the form shown in figure 2,
-                        to illustrate the use of OSLO-STEPS. The shown step provides certain information, but also
-                        needs input data. This input data can be provided by steps which are shown in listing 1. This
-                        also implies a hierarchy of steps, expressed in the dependency of input data. Listing 4
-                        presents an alternative approach to represent needed input data for a step using the CCCEV vocabulary.
+                        We demonstreren in voorbeeld 2 de definitie van een van de stappen uit het formulier van figuur 2
+                        om het gebruik van OSLO-STEPS te illustreren. De getoonde stap levert bepaalde informatie, maar heeft ook
+                        invoergegevens nodig. Deze invoergegevens kunnen worden geleverd door stappen die in voorbeeld 1 zijn weergegeven. 
+                        Dit impliceert een hiërarchie van stappen.
+                        Voorbeeld 4 presenteert een alternatieve benadering om de benodigde invoergegevens voor een stap weer te geven a.d.h.v. het CCCEV-vocabularium.
                     </p>
                     <pre class="background">
                         <code>
@@ -221,28 +209,26 @@
                         </code>
                     </pre>
                     <figcaption>
-                        Listing 2: The OSLO-STEPS representation for one of the steps from the form shown in
-                        figure 2. Compared to listing 1, this step is on a higher hierarchy level. 
+                        Voorbeeld 2: De OSLO-STEPS representatie voor een van de stappen uit het formulier in figuur 2. 
+                        Vergeleken met voorbeeld 1 bevindt deze stap zich op een hoger hiërarchisch niveau.
                     </figcaption>
-                    <br/>
-                    <p>
-                        As discussed in a previous section, not all values respectively combination of values might
-                        be valid. One way to express valid combinations is illustrated using the CCCEV vocabulary
-                        as shown in listing 4. Valid values can be described using shapes, which
-                        can be used to automatically validate input data provided by the user. Additionally such
-                        shapes have the potential to communicate valid values to a UI component, which can render
-                        UI elements accordingly, and also provide a state-of-the-art user experience by highlighting
-                        invalid values while using the UI.
-                        Shapes may define target nodes to which they apply, which is used for automated validation.
-                        In our case shapes may target defined variables, which allows the shapes to validate each
-                        value provided by the user, which due to the model corresponds to these variables, see
-                        listing 5.
-                    </p>
                 </figure>
             </div>
             <div class="h3_alinea">
                 <figure class="listing">
-                    <h3 class="h3">Listing 3</h3>
+                    <h3 class="h3">Voorbeeld 3</h3>
+                    <p>
+                        Zoals eerder besproken, kunnen niet alle waarden of combinaties van waarden
+                        geldig zijn. Een manier om geldige combinaties uit te drukken wordt geïllustreerd met behulp van het CCCEV-vocabularium
+                        zoals weergegeven in voorbeeld 4. Geldige waarden kunnen worden beschreven met behulp van 'shapes', die
+                        automatisch door de gebruiker verstrekte invoergegevens kunnen valideren. Bovendien hebben dergelijke
+                        shapes de mogelijkheid om geldige waarden door te geven aan een UI component, die de UI-elementen kan renderen, 
+                        en ook een state-of-the-art gebruikerservaring kan bieden door het markeren van ongeldige waarden tijdens het gebruik van de UI.
+                        Shapes kunnen 'target nodes' definiëren waarop ze van toepassing zijn, wat gebruikt wordt voor geautomatiseerde validatie.
+                        In ons geval kunnen shapes zich richten op gedefinieerde variabelen, wat de shapes in staat stelt om elke waarde te valideren
+                        die de gebruiker opgeeft, en die volgens het model overeenkomt met deze variabelen, zie voorbeeld 5.
+                    </p>
+                    <br/>
                     <pre class="background">
                         <code>
 
@@ -270,15 +256,14 @@
                         </code>
                     </pre>
                     <figcaption>
-                        Listing 3: A SHACL shape, describing valid values for variables which in our example can be
-                        provided by the first step of listing 1. The shape is targeting each executed step which
-                        creates values corresponding to this variable.
+                        Voorbeeld 3: Een SHACL shape, die geldige waarden beschrijft voor variabelen die in ons voorbeeld kunnen worden geleverd 
+                        door de eerste stap van voorbeeld 1. De shape target elke uitgevoerde stap die nieuwe waarden creëert die corresponderen met deze variabele.
                     </figcaption>
                 </figure>
             </div>
             <div class="h3_alinea">
                 <figure class="listing">
-                    <h3 class="h3">Listing 4</h3>
+                    <h3 class="h3">Voorbeeld 4</h3>
                     <pre class="background">
                         <code>
                             @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
@@ -331,14 +316,13 @@
                         </code>
                     </pre>
                     <figcaption>
-                        Listing 4: An alternative approach to express needed input of a step using the CCCEV
-                        vocabulary.
+                        Voorbeeld 4: Een alternatieve aanpak om de input van een stap uit te drukken met behulp van het CCCEV-vocabulaire.
                     </figcaption>
                 </figure>      
             </div>
             <div class="h3_alinea">\
                 <figure class="listing">
-                    <h3 class="h3">Listing 5</h3>
+                    <h3 class="h3">Voorbeeld 5</h3>
                     <pre class="background">
                         <code>
                             @prefix rdfs: &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt; .
@@ -375,7 +359,7 @@
                         </code>
                     </pre>
                     <figcaption>
-                        Listing 5: The representation of an executed step.
+                        Voorbeeld 5: De representatie van een uitgevoerde stap.
                     </figcaption>
                 </figure>      
             </div>
