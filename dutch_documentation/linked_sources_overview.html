@@ -63,55 +63,54 @@
             <li><a class="button" href="./rdf_workflow_description.html">RDF Workflow Beschrijving</a></li>
         </ul>
 
-        <h1 class="h1">OSLO-STEPS Linked Sources Overview</h1>
+        <h1 class="h1">OSLO-STEPS Linked Sources</h1>
         <div class="h2_alinea">
-            <h2 class="h2">Introduction</h2>
+            <h2 class="h2">Introductie</h2>
             <p>
-                We describe the different data sources and data formats which are taken into account when composing workflows. We furthermore explain, how these
-                formats relate to each other and how we translate between different relevant formats.
+                We beschrijven de verschillende gegevensbronnen en data formaten waarmee rekening moet worden gehouden bij het samenstellen van workflows. 
+                Verder leggen we uit hoe deze formaten zich tot elkaar verhouden en hoe we de link maken tussen de verschillende relevante formaten.
             </p>
         </div>
         <div class="h2_alinea">
-            <h2 class="h2">Data Sources</h2>
+            <h2 class="h2">Gegevensbronnen</h2>
             <p>
-                The planning process makes use of (i) public service steps descriptions in OSLO-STEPS, (ii) step related cost information, and (iii) information and about the 
-                user. In the following we will describe each of the three components and then introduce the internal step representation in N3 utilized by the workflow planner.
+                Het planningsproces maakt gebruik van (i) beschrijvingen van de stappen van de openbare dienst in OSLO-STEPS, (ii) informatie over de cost van de stappen, en (iii) informatie over de 
+                gebruiker. We zullen de drie componenten overlopen en vervolgens de Interne Step Representation in N3 introduceren die door de workflow planner wordt gebruikt.
             </p>
             <figure class="img">
                 <img src="./linked_sources_images/planning_workflow.png"/>
-                <figcaption>Figure 1: An overview of linked sources used in planning workflows.</figcaption>
+                <figcaption>Figuur 1: Een overzicht van linked sources in planning workflows.</figcaption>
             </figure>
          </div>
          <div class="h3_alinea">
-            <h2 class="h3">OSLO-STEPS description</h2>
+            <h2 class="h3">OSLO-STEPS beschrijving</h2>
             <p>
-                The following concepts of the data model are relevant for the planning process: Steps, states and 
-                state shapes. In the following these concepts are briefly described, a full documentation is available <a href="https://fast.ilabt.imec.be/ns/oslo-steps/index-en.html">here</a>. 
-                Additionally listing 1 shows an example to illustrate how steps are represented in OSLO-STEPS.
+                De volgende concepten van het data model zijn relevant voor het planningsproces: steps, states en 
+                state shapes. We zullen deze concepten kort beschrijven, een volledige documentatie is beschikbaar <a href="https://fast.ilabt.imec.be/ns/oslo-steps/index-en.html">hier</a>. 
             </p>
             <br/>
             <h3 class="h4">Steps</h3>
             <p>
-                A step is an action which can be performed in a workflow. Each step can only be
-                executed if certain conditions are fulfilled (pre condition) and each step leads to a
-                new situation (post condition). We describe these conditions and the resulting
-                situation on terms of so-called states. In the example in Listing 1, we see the
-                description of the step confirmAddressChange. This description refers to the visit
-                of a policeman which is required in Belgium if a citizen wants to change his address.
-                The step can only be executed, if the address change is declared and after the visit
-                of the policeman, the change is confirmed.
+                Een step (of stap) is een actie die in een workflow kan worden uitgevoerd. Elke stap kan alleen worden
+                worden uitgevoerd als aan bepaalde voorwaarden is voldaan (pre-conditie) en elke stap leidt tot een
+                nieuwe situatie (postconditie). We beschrijven deze condities en de resulterende
+                situatie in termen van zogenaamde states. In voorbeeld 1 zien we de
+                beschrijving van de stap confirmAddressChange. Deze beschrijving verwijst naar het bezoek
+                van een politieagent die in België vereist is als een burger zijn adres wil wijzigen.
+                De stap kan alleen worden uitgevoerd, als de adreswijziging wordt aangegeven en dan na het bezoek
+                van de politieagent, de wijziging wordt bevestigd.
             </p>
             <br/>
             <p>
-                Steps can be described at different levels of granularity. We can for example
-                understand the act of providing personal information like name, date of birth and
-                national number as one big step or we can see giving each of these details as small
-                single steps. It depends on the particular use case, how fine-grained the steps need
-                to be and in our project, we need different levels of granularity. We therefore decided
-                to introduce different hierarchy levels: component level, container level and journey
-                level. Workflows can be composed on each of these levels. The step displayed in
-                Listing 1 is a component level step, that is the lowest level in our representation and
-                the step can not be split up in smaller steps any more.
+                Stappen kunnen op verschillende granulariteitsniveaus worden beschreven. Wij kunnen bijvoorbeeld
+                het verstrekken van persoonlijke informatie zoals naam, geboortedatum en
+                rijksregisternummer als één grote stap zien of we kunnen elk detail zien als een kleine
+                afzonderlijke stap. Het hangt af van de specifieke use case, hoe fijn de stappen moeten
+                moeten zijn en in ons project hebben we verschillende niveaus van granulariteit nodig. Daarom hebben we besloten
+                om verschillende hiërarchie niveaus te introduceren: component niveau, container niveau en journey
+                niveau. Workflows kunnen op elk van deze niveaus worden samengesteld. De stap weergegeven in
+                Voorbeeld 1 is een stap op component niveau, dat is het laagste niveau in onze representatie en
+                de stap kan niet meer worden opgesplitst in kleinere stappen.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -123,24 +122,23 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 1: Step with pre/post condition states in OSLO-STEPS.
+                    Voorbeeld 1: Stap met pre/post conditie states in OSLO-STEPS.
                 </figcaption>
             </figure>
             <h3 class="h4">States</h3>
             <p>
-                Pre and post conditions of steps are described as states. States are representations
-                of situations. In the context of steps, these situations can either be requirements to
-                execute a step or they can be the result of such an execution. In our format each
-                state has a URI and thus can have meta information. A state furthermore has one or
-                more state shapes assigned which further describe it. Additionally it can have UI
-                shapes which are used to specify the data format an answer is expected to be
-                provided in.
+                Pre- en postcondities van stappen worden beschreven als states. States zijn voorstellingen
+                van situaties. In de context van 'steps' kunnen deze situaties ofwel vereisten zijn om
+                een stap uit te voeren of ze kunnen het resultaat zijn van zo'n uitvoering. In ons formaat heeft elke
+                state een URI en kan dus meta-informatie bevatten. Een state heeft verder één of
+                meer state shapes toegewezen die het verder beschrijven. Bovendien kan een state UI-shapes 
+                hebben die gebruikt worden om het dataformaat te specificeren waaraan een antwoord moet voldoen.
             </p>
             <br/>
             <p>
-                In Listing 2 we provide the example of a state declaration. The state
-                <i>state:addressChangeDeclared</i> is a state in the OSLO vocabulary and it has 
-                the shape <i>shape:addressChangeDeclaredShape</i> associated to it as a state
+                In Voorbeeld 2 zien we een 'state declaration'. De state
+                <i>state:addressChangeDeclared</i> is een status in het OSLO-vocabularium en er is 
+                een shape <i>shape:addressChangeDeclaredShape</i> eraan geassocieerd als een state
                 shape.
             </p>
             <figure class="listing">
@@ -152,39 +150,39 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 2: Example state declaration.
+                    Voorbeeld 2: state declaration.
                 </figcaption>
             </figure>
-            <h3 class="h4">State and UI shapes</h3>
+            <h3 class="h4">State en UI shapes</h3>
             <p>
-                Shapes specify how the triples representing a state should look like. Here, we use
-                the <a href="https://www.w3.org/TR/shacl/">SHape Constraints Language (SHACL)</a>. With SHACL we can describe the
-                syntactic shape of a triple or a set of triples. This for includes specifying the
-                predicates which for a certain node need to have values, but also the specific kind of
-                values (string following a certain pattern, integer within a range, etc.).
+                Shapes specificeren hoe de triples die een state vertegenwoordigen eruit moeten zien. Hier gebruiken we
+                de <a href="https://www.w3.org/TR/shacl/">SHape Constraints Language (SHACL)</a>. Met SHACL kunnen we de
+                syntactische vorm van een tripel of een verzameling tripels beschrijven. Dit omvat onder meer het specificeren van de
+                predicaten waarvoor een bepaalde node waarden moet hebben, maar ook het specifieke soort
+                waarden (string volgens een bepaald patroon, geheel getal binnen een bereik, enz.)
                 
             </p>
             <br/>
             <p>
-                It depends on the intended use of the shape which kind of information it should
-                contain. While for our workflow composition process it is very important whether or
-                not certain kinds of triples are valid at a certain point in time, for the user interface it
-                is much more important how the data needs to be represented, it should for example
-                be excluded that users can enter negative ages or order a negative amount of
-                tickets. For the needs of the project, we defined two different kinds of shapes: UI
-                shapes contain the information which is relevant for the UI, state shapes contain the
-                information our internal representation format needs.
+                Het hangt van het beoogde gebruik van de shape af welk soort informatie deze moet
+                moet bevatten. Terwijl het voor ons workflow composition process erg belangrijk is of
+                bepaalde triples geldig zijn op een bepaald moment, is het voor de gebruikersinterface
+                veel belangrijker hoe de gegevens moeten worden weergegeven. Het moet bijvoorbeeld
+                worden uitgesloten dat gebruikers negatieve leeftijden kunnen invoeren of een negatief aantal
+                tickets kunnen bestellen. Voor de use case van het project hebben we twee verschillende soorten shapes gedefinieerd: UI
+                shapes bevatten de informatie die relevant is voor de UI, state shapes bevatten de
+                informatie die onze interne representatie nodig heeft.
             </p>
             <br/>
             <p>
-                In Listing 3 we display an example state shape. In order to obtain the state the
-                shape is associated to, for each instance of the class o-persoon:Inwoner there
-                needs to be a triple with the predicate ex:addressChangeDeclared and the object
-                true. This state shape is special in the sense that the information it provides are
-                also interesting from a UI point of view and could therefore also be used as a UI
-                shape. We do not only state that a certain triple needs to exist (sh:minCount 1), we
-                even specifically state its value and that value is a constant. In practice, most state shapes are 
-                declaring the existence of certain triples since our composition relies on the dependencies of data based on triple level.
+                In Voorbeeld 3 wordt een state shape weergegeven. Om de state te verkrijgen waaraan de
+                shape geassocieerd is, moet er voor elke instantie van de klasse o-persoon:Inwoner
+                een triple met het predicaat ex:addressChangeDeclared zijn en het object
+                moet true zijn. Deze state shape is bijzonder in de zin dat de informatie die hij verschaft
+                ook interessant is vanuit een UI oogpunt en daarom zou het ook gebruikt kunnen worden als een UI
+                shape. We stellen niet alleen dat er een bepaald triple moet bestaan (sh:minCount 1), we
+                we geven zelfs specifiek de waarde aan en die waarde is een constante. In de praktijk declareren de meeste state shapes 
+                het bestaan van bepaalde triples, omdat onze composition steunt op de afhankelijkheden van data op triple niveau.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -200,40 +198,40 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 3: Information of a user in RDF and a state shape expressing the post condition of a step.
+                    Voorbeeld 3: Informatie van een gebruiker in RDF en een state shape die de postconditie van een stap uitdrukt.
                 </figcaption>
             </figure>
         </div>
         <div class="h3_alinea">
-            <h2 class="h3">Step-related cost information</h2>
+            <h2 class="h3">Steps cost information</h2>
             <p>
-                Next to the required and produced state of a step, we also need to express its
-                weights. Weights are quantitative values expressing some kind of cost of the step.
-                Costs can for example be the time which is spend executing a step or the actual
-                money (if any) you need to pay in order to execute the step.
+                Naast de vereiste en geproduceerde state van een stap, moeten we ook de
+                weights of gewichten uitdrukken. Weights zijn kwantitatieve waarden die een soort cost van de stap uitdrukken.
+                Een cost kan bijvoorbeeld de tijd zijn die wordt besteed aan het uitvoeren van een stap of het
+                geld (indien van toepassing) dat u moet betalen om de stap uit te voeren.
             </p>
             <br/>
             <p>
-                In general, the costs of a step are use case dependent and our implementation can
-                handle steps as long as the mechanism how the costs need to be combined is
-                clearly defined - we for example calculate the overall cost of a workflow as the sum
-                of the costs of its different steps. To declare costs we defined the predicate
-                cost:cost which can have several subpredicates. In our current implementation we
-                work with the costs cost:usersatifaction - here we give a value between 0 and
-                1 where 0 is very unhappy and 1 is satisfied, the values can be multiplied to get the
-                overall value for a workflow - cost:duration - here we measure the time a step
-                takes, the value is added - cost:success - here we capture the likelihood that a
-                step leads to the desired result - and cost:monetaryCost - here we measure
-                actual costs in Euro which are up to now not that relevant in our current
-                implementation.
+                In het algemeen is de cost van een stap afhankelijk van het gebruik. Onze implementatie kan
+                stappen verwerken, zolang het mechanisme hoe de costs moeten worden gecombineerd
+                duidelijk gedefinieerd is. Wij berekenen bijvoorbeeld de totale cost van een workflow als de som
+                van de costs van de verschillende stappen. Om een cost te declareren hebben we het predicaat
+                cost:cost dat verschillende subpredicaten kan hebben. In onze huidige implementatie werken we
+                met de cost:usersatifaction - hier geven we een waarde tussen 0 en
+                1 waarbij 0 zeer slecht is en 1 goed, de waarden kunnen worden vermenigvuldigd om de
+                totale waarde voor een workflow te krijgen - cost:duration - hier meten we de tijd die een stap
+                duurt, de waarde wordt toegevoegd - cost:success - hier leggen we de waarschijnlijkheid vast dat een
+                stap tot het gewenste resultaat leidt - en cost:monetaryCost - hier meten we
+                werkelijke kosten in euro's die tot nu toe niet zo relevant zijn in onze huidige
+                implementatie.
             </p>
             <br/>
             <p>
-                We display an example use of the cost vocabulary in Listing 4. The step of
-                confirming an address change by the police normally takes 2 weeks (10160
-                minutes), the visit is free (0 monetary costs), 97% of the users are satisfied by that
-                step and in 98% of the cases the step is executed as accepted (i.e. there is a
-                policeman visiting the place).
+                Een voorbeeld van het gebruik van het cost vocabularium staat in voorbeeld 4. De stap van
+                het bevestigen van een adreswijziging door de politie duurt normaal 2 weken (10160
+                minuten), het bezoek is gratis (0 monetaire kosten), 97% van de gebruikers is tevreden over die
+                stap en in 98% van de gevallen wordt de stap als geaccepteerd uitgevoerd (d.w.z. er is een
+                politieagent die de plaats bezoekt).
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -245,33 +243,32 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 4: Example cost description.
+                    Voorbeeld 4: cost beschrijving.
                 </figcaption>
             </figure>
         </div>
         <div class="h3_alinea">
             <h2 class="h3">User information</h2>
             <p>
-                Another important component for the planning process is the information about users
-                which is considered for workflow personalization, i.e. optimal steps and step
-                sequence per user. In the context of the FAST project, such information is assumed
-                to reside in a trusted location, e.g. in the MijnBurgerprofiel database maintained by
-                the government in Flanders.
+                Een andere belangrijke component voor het planningsproces is de informatie over gebruikers
+                die in aanmerking wordt genomen voor workflow personalisatie, d.w.z. optimale stappen en stap
+                volgorde per gebruiker. In de context van het FAST-project wordt ervan uitgegaan dat dergelijke informatie
+                zich bevindt op een vertrouwde locatie, bijvoorbeeld in de MijnBurgerprofiel database die wordt onderhouden door
+                de Vlaamse overheid.
             </p>
             <br/>
             <p>
-                Additionally, user information can be used to determine the state in which users are,
-                i.e. which information is already provided and hence which steps are unnecessary to
-                execute. Listing 5 shows information of a user. Where possible, we use existing
-                vocabularies like <a href="http://xmlns.com/foaf/spec/">foaf</a> or <a href="https://schema.org/">schema.org </a>. In the example, we already have the
-                name, the national number and the cell phone number of the user and can therefore
-                omit the steps which are in place to acquire that information.
+                Bovendien kan de gebruikersinformatie worden gebruikt om te bepalen in welke toestand de gebruikers zich bevinden,
+                d.w.z. welke informatie al is verstrekt en dus welke stappen niet nodig zijn om
+                uit te voeren. Voorbeeld 5 toont informatie van een gebruiker. Waar mogelijk gebruiken we bestaande
+                vocabularia zoals <a href="http://xmlns.com/foaf/spec/">foaf</a> of <a href="https://schema.org/">schema.org </a>. In het voorbeeld hebben we al de
+                naam, het rijksregisternummer en het mobiele nummer van de gebruiker en kunnen we dus de stappen achterwege laten die nodig zijn om die informatie te verkrijgen.
             </p>
             <br/>
             <p>
-                Taking up the example provided above, the step step:confirmAddressChange is
-                never necessary if the profile of the user already contains the information that the
-                address change has been confirmed by the police.
+                In het bovenstaande voorbeeld is de step:confirmAddressChange
+                nooit nodig als het profiel van de gebruiker al de informatie bevat dat de
+                adreswijziging door de politie is bevestigd.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -285,50 +282,49 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 5: Example user information.
+                    Voorbeeld 5: user information.
                 </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
-            <h2 class="h2">Internal steps representation</h2>
+            <h2 class="h2">Internal steps representation (N3)</h2>
             <p>
-                In order to compose workflows, we rely on an internal representation format. This
-                representation format makes use of <a href="https://www.w3.org/TeamSubmission/n3/">Notation3 Logic (N3)</a> 
-                an extension of the <a href="https://www.w3.org/TR/turtle/">RDF turtle</a> format which was used for OSLO-STEPS. N3 allows the user to cite
-                graphs, to write logical rules and to use several built-in functions to for example
-                calculate numbers or directly operate on strings. N3 is also the language the
-                workflow composer itself is written in which also makes the format a natural choice to represent possible steps in workflows. 
-                However, we opted to introduce an alternative data format (OSLO-STEPS) to represent possible steps of a workflow in this project.
-                This has two reasons, firstly, we wanted to have a format which is as close as
-                possible to the other formats designed in the OSLO framework such that users used
-                to these other formalisations can easily adapt, secondly, we did not want to use a
-                non-standard syntax (N3 logic is no W3C recommendation but only a possible
-                candidate) since - based on our experience - that can stop potential users from
-                actually using the specification. As we will explain later, OSLO-steps can automatically be translated to our internal format such that every
-                potential user can freely choose which format he or she wants to use in order to
-                describe possible steps of workflows. In this section, we introduce our internal
-                representation format, in the next section, we further elaborate how the translation
-                between the formats is done.
+                Om workflows samen te stellen, vertrouwen we op een intern representatieformaat. Dit
+                representatieformaat maakt gebruik van <a href="https://www.w3.org/TeamSubmission/n3/">Notation3 Logic (N3)</a> 
+                een uitbreiding van het <a href="https://www.w3.org/TR/turtle/">RDF turtle</a> formaat dat werd gebruikt voor OSLO-STEPS. N3 laat de gebruiker toe om grafieken te citeren, 
+                logische regels te schrijven en verschillende ingebouwde functies te gebruiken om bijvoorbeeld
+                getallen te berekenen of strings te bewerken. N3 is ook de taal waarin de
+                workflow composer zelf is geschreven, waardoor het formaat een natuurlijke keuze is om mogelijke stappen in workflows weer te geven. 
+                We hebben er echter voor gekozen om een alternatief dataformaat (OSLO-STEPS) te introduceren om de stappen van een workflow in dit project weer te geven.
+                Dit heeft twee redenen: ten eerste wilden we een formaat dat zo dicht mogelijk
+                ligt bij de andere formaten die in het OSLO project zijn ontworpen, zodat gebruikers die
+                aan deze andere standaarden voldoen zich gemakkelijk kunnen aanpassen. Ten tweede wilden we geen gebruik maken van een
+                syntax die geen standaard is (N3 logic is geen W3C-aanbeveling maar slechts een mogelijke
+                kandidaat) omdat - op basis van onze ervaring - dat potentiële gebruikers ervan kan weerhouden
+                de specificatie daadwerkelijk te gebruiken. Zoals we later zullen uitleggen, kunnen OSLO-stappen automatisch worden vertaald naar ons interne formaat, zodat iedere
+                potentiële gebruiker vrij kan kiezen welk formaat hij of zij wil gebruiken om
+                mogelijke stappen van workflows te beschrijven. In deze sectie introduceren we ons interne
+                representatieformaat, in de volgende sectie werken we verder uit hoe de vertaling
+                tussen de formaten wordt gedaan.
             </p>
             <br/>
             <p>
-                The step description in our internal format is done using a backward-rule. In N3 we
-                can state rules which act on linked data. These rules can either be stated as a
-                forward rule (using the arrow "=>") or they can be stated as a backward rule (using
-                "<="). From a model theoretic perspective, both kinds of rules have the same
-                meaning, namely a logical implication, but from a procedural point of view, they
-                differ: <a href="http://eulersharp.sourceforge.net/">The EYE reasoner</a> which we used in our implementation applies forward
-                reasoning when a rule is stated in a forward manner and backward reasoning when
-                we have a backward rule.
-
+                De step description in ons intern formaat gebeurt met behulp van een backward-rule. In N3 kunnen we
+                kunnen we regels stellen die inwerken op gekoppelde gegevens. Deze regels kunnen ofwel worden opgegeven als een
+                forward-rule (met behulp van de pijl "=&gt;") of ze kunnen als een backward-rule regel (met behulp van
+                "&lt;="). Vanuit een theoretisch perspectief hebben beide soorten regels dezelfde
+                betekenis, namelijk een logische implicatie, maar vanuit procedureel oogpunt
+                verschillen ze: <a href="http://eulersharp.sourceforge.net/">De EYE reasoner</a> die we gebruikten in onze implementatie past forward
+                reasoning toe wanneer een regel op een forward-rule wordt gesteld en backward reasoning wanneer
+                we een backward-rule hebben.
             </p>
             <br/>
             <p>
-                In practice that means, that forward rules get applied on the initial knowledge till a
-                goal is reached while backward-rules start from the goal and try to verify it based on
-                rules and facts. In the context of our workflow engine which deals with data change,
-                it must additionally be mentioned, that when applying forward reasoning, interim
-                results get stored internally.                
+                In de praktijk betekent dat, dat foward-rules worden toegepast op de initiële kennis tot een
+                bepaald doel is bereikt, terwijl backward-rules uitgaan van het doel en dit proberen te verifiëren op basis van
+                regels en feiten. In de context van onze workflow engine die zich bezighoudt met het wijzigen van gegevens,
+                moet bovendien worden vermeld, dat bij het toepassen van forward reasoning, tussentijdse
+                resultaten intern worden opgeslagen.                             
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -346,83 +342,82 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 6:Schematic overview of our step description format.
+                    Voorbeeld 6: Schematisch overzicht van ons step description formaat.
                 </figcaption>
             </figure>
             <p>
-                This is also the reason why our workflow composer only makes use of backward
-                rules. The composer tries to find paths to a predefined goal. During that process,
-                data can change and with these changes, the consequences of data can also get invalid.
-                A step description in our internal format consists of different parts which are also
-                displayed in Listing 6. Below, we discuss the meaning of these different parts:
+                Dit is ook de reden waarom onze workflow composer alleen gebruik maakt van backward-rules. 
+                De composer probeert een weg te vinden naar een vooraf gedefinieerd doel. Tijdens dat proces,
+                kunnen gegevens veranderen en met deze veranderingen kunnen ook de gevolgen van gegevens ongeldig worden.
+                Een step description in ons interne formaat bestaat uit verschillende onderdelen die ook
+                weergegeven worden in voorbeeld 6. Hieronder bespreken we de betekenis van deze verschillende onderdelen: 
             </p>
             <br/>
             <p>
-                <strong>Map:</strong> Name of the map the step belongs to. We divide our step descriptions into
-                different sets called “maps”. This distribution into maps is needed because rules can
-                come from different sources and use the same vocabulary differently (even if
-                standardization efforts as OSLO try to prevent that). Naming the corresponding map
-                together with a step description helps us to control unintended interaction between
-                steps from different maps.
+                <strong>Map:</strong> Naam van de map waartoe de stap behoort. We verdelen onze step descriptions in
+                verschillende sets die "maps" worden genoemd. Deze verdeling in maps is nodig omdat regels
+                uit verschillende bronnen komen en hetzelfde vocabularium verschillend gebruiken (zelfs als
+                standaardisatie inspanningen zoals OSLO dat proberen te voorkomen). Het benoemen van de overeenkomstige map
+                samen met een step description helpt ons om onbedoelde interactie te controleren tussen
+                stappen uit verschillende maps.
             </p>
             <br/>
             <p>
-                <strong>Step name:</strong> For each step we describe which data gets invalid by the execution of
-                the step. This data is expressed by means of triples and surrounded by curly
-                brackets {}. It can contain variables (starting with question marks ?), but all variables
-                it contains also need to be present in the Where-part of the description. This has
-                technical reasons, but since all data which can be removed also needs to be valid,
-                this does not impose any limitations in expressiveness.                
+                <strong>Step name:</strong> Voor elke stap beschrijven we welke gegevens ongeldig worden door de uitvoering van
+                de stap. Deze gegevens worden uitgedrukt door middel van triples en omgeven door accolades {}. 
+                Het kan variabelen bevatten (beginnend met vraagtekens ?), maar alle variabelen
+                die het bevat, moeten ook aanwezig zijn in het Where-gedeelte van de beschrijving. Dit heeft
+                technische redenen, maar omdat alle gegevens die verwijderd kunnen worden ook geldig moeten zijn,
+                legt dit geen beperkingen op aan de uitdrukking. 
             </p>
             <br/>
             <p>
-                <strong>Between-part:</strong> As our steps have durations, it can be important to know what
-                happens with our data after the execution of a step has started and before its
-                execution is finished. This is expressed in the Between-part of the description. This
-                between-part contains triples and from the syntactic point of view it has the exact
-                same restrictions as the From-part. If we want to use new variables in that part of the
-                description, these need to be declared in the Where-part of the description.               
+                <strong>Between-part:</strong> Omdat onze stappen een tijdsduur hebben, kan het belangrijk zijn om te weten wat
+                er gebeurt met onze gegevens nadat de uitvoering van een stap is begonnen en voordat de
+                uitvoering is voltooid. Dit wordt uitgedrukt in het Between-part van de beschrijving. Dit
+                Between-part bevat triples en heeft syntactisch gezien precies
+                dezelfde beperkingen als het From-part. Als we nieuwe variabelen willen gebruiken in dat deel van de
+                beschrijving, moeten deze worden gedeclareerd in het Where-part van de beschrijving.            
             </p>
             <br/>
             <p>
-                <strong>To-part:</strong> For each step we describe the situation the execution of the step causes.
-                The same syntactic requirements we imposed on the Between-part of the step
-                description also apply here.    
+                <strong>To-part:</strong> Voor elke stap beschrijven we de situatie die de uitvoering van de stap veroorzaakt.
+                Dezelfde syntactische eisen die we stelden aan het Between-part van de step description zijn ook hier van toepassing.  
             </p>            
             <br/>
             <p>
-                <strong>Where-part:</strong> For each step we describe the condition under which the step can be
-                executed. This part of the description can also be used to do calculations (if the step
-                changes or manipulates a value, it can be that the new value depends on the old
-                one, here we need to calculate). For technical reasons (backward rules cannot
-                contain new variables in their consequence) this part also needs to be used to 
-                declare variables which are only used in the To- or in the Between-part of the
-                description. For these a Skolem variable needs to be created, that is a unique URI
-                which represents a resource. As we will discuss below, the reasoner we use can do
-                that automatically.             
+                <strong>Where-part:</strong> Voor elke stap beschrijven we de voorwaarde waaronder de stap kan worden
+                uitgevoerd. Dit deel van de beschrijving kan ook gebruikt worden om berekeningen uit te voeren (als de stap
+                een waarde verandert of manipuleert, kan het zijn dat de nieuwe waarde afhangt van de oude
+                waarde, hier moeten we vervolgens berekeningen uitvoeren). Om technische redenen (backward-rules kunnen geen
+                nieuwe variabelen bevatten in hun vervolg) moet dit deel ook worden gebruikt om 
+                variabelen te declareren die alleen worden gebruikt in het To- of in het Between-part van de
+                beschrijving. Voor deze variabelen moet een Skolem-variabele worden aangemaakt. Dat is een unieke URI
+                die een bron vertegenwoordigt. Zoals we hieronder zullen bespreken, kan de reasoner die we gebruiken
+                dit automatisch doen.                 
             </p>
             <br/>
             <p>
-                <strong>Weights:</strong> The weights of a step in our internal description format are the analogue to
-                the the costs as represented in OSLO-STEPS. Each step can have different kinds of
-                weights like for example the monetary costs of its execution or their expected
-                success rate. Weights assigned to a step using ourinternal format need to be
-                aggregatable, i.e. there needs to be a method with which an overall value for a
-                composed workflow can be computed making use of the singleton values of the
-                different steps.
+                <strong>Weights:</strong> De gewichten van een stap in ons interne formaat zijn analoog aan
+                de cost zoals weergegeven in OSLO-STEPS. Elke stap kan verschillende soorten
+                gewichten hebben, zoals bijvoorbeeld de monetaire cost van de uitvoering of het verwachte
+                succespercentage. Gewichten die met ons interne formaat aan een stap worden toegekend moeten
+                aggregeerbaar zijn, d.w.z. er moet een methode zijn waarmee een totale waarde voor een
+                samengestelde workflow kan worden berekend door gebruik te maken van de singleton waarden van de
+                verschillende stappen.
             </p>
             <br/>
             <p>
-                Below, in Listing 7 we provide the description of the step
-                step:confirmAddressChange which we also described above using the
-                OSLO-STEPS vocabulary. The From-part and the Between- part are empty. The
-                required state is represented in the Where-part of the description. The address
-                change needs to be declared. Additionally, we have a triple declaring, that the
-                requester of the address change needs to be a citizen (inwoner). The reason for that
-                is that all the data we want to add about a person in our workflows needs to be
-                related to the same instance, we thus need the unique uri of the citizen. 
-                In the To-part of the listing, we see the produced state. The address change is
-                confirmed by the police.
+                Hieronder, in voorbeeld 7, geven we de beschrijving van de stap
+                step:confirmAddressChange die we hierboven ook besproken hebben met behulp van het
+                OSLO-STEPS vocabularium. Het From-part en het Betwen-part zijn leeg. De
+                vereiste status wordt weergegeven in het Where-part van de beschrijving. De adres
+                verandering moet worden aangegeven. Bovendien hebben we een triple dat de
+                aanvrager van de adreswijziging een burger (inwoner) moet zijn. De reden daarvoor
+                is dat alle gegevens die wij over een persoon in onze workflows willen toevoegen, gerelateerd 
+                moet zijn aan dezelfde instantie. We hebben dus de unieke URI van de burger nodig. 
+                In het To-part van het voorbeeld, zien we de bekomen status. De adreswijziging is
+                bevestigd door de politie.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -449,47 +444,47 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 7: Description of step “confirmation of address change” using our internal format based on N3.
+                    Voorbeeld 7: Beschrijving van de stap “confirmation of address change” met het N3 formaat.
                 </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
-            <h2 class="h2">OSLO-STEPS as descriptive logic rules</h2>
+            <h2 class="h2">OSLO-STEPS als beschrijvende logische regels</h2>
             <p>
-                As described above, we have an internal format we base our workflow composition
-                on - this format is based on N3 - and we have the OSLO-STEPS vocabulary which is
-                designed to be very close to existing OSLO vocabularies such that users who
-                already know these standards do not have problems to write rules. To translate from
-                one representation to the other, we defined rules. Below, we explain how these rules
-                work in more detail.
+                Zoals hierboven beschreven, hebben we een intern formaat waarop we onze workflow composition baseren
+                - dit formaat is gebaseerd op N3 - en we hebben het OSLO-STEPS vocabularium dat is
+                ontworpen is om zeer dicht bij bestaande OSLO vocabularia te staan. Zodat gebruikers die
+                deze normen al kennen geen problemen ondervinden om regels te creëren. Om van
+                de ene representatie naar de andere te gedaan, hebben we regels gedefinieerd. Hieronder leggen we uit hoe deze regels
+                in detail werken.
             </p>
             <br/>
             <p>
-                As explained above, with OSLO-STEPS we state for each stepe the required and the
-                produced state and for these states we have shapes. For our implementation, we
-                need to find these shape for each step and translate from SHACL to our pattern
-                representation. We wrote different rules for different SHACL constructs. We
-                exemplify that on shapes declaring that a value needs to exist. This is normally
-                indicated by the predicate sh:mincount (see also listing 3). If for a path (sh:path) a
-                sh:mincount value of 1 is given, that means that the target for which the shape is
-                defined always needs to have at least one value connected to it via the predicate
-                which appears after sh:path. The shape in Listing 3 for example states that for
-                every citizen (o-persoon:Inwoner) x there needs to be a value for
-                ex:addressChangeDeclared. This shape is even more explicit, the value needs to
-                be true, this is indicated by the predicate sh:hasValue. We expect a triple of the
-                form:
+                Zoals hierboven uitgelegd, geven we met OSLO-STEPS voor elke stap de vereiste en de
+                geproduceerde state en voor deze states hebben we shapes. Voor onze implementatie moeten we
+                deze shapes voor elke stap vinden en vertalen van SHACL naar onze pattern
+                representatie. We hebben verschillende regels geschreven voor verschillende SHACL constructies. We
+                illustreren dit op shapes die aangeven dat er een waarde moet bestaan. Dit wordt normaal gezien
+                aangegeven door het predicaat sh:mincount (zie ook voorbeeld 3). Als voor een pad (sh:path) een
+                sh:mincount waarde van 1 is gegeven, betekent dit dat het doel waarvoor de shape
+                gedefinieerd is, altijd ten minste één waarde moet hebben die ermee verbonden is via het predicaat
+                dat achter sh:path staat. De shape in voorbeeld 3 stelt bijvoorbeeld dat voor
+                elke burger (o-persoon:inwoner) er een waarde moet zijn voor
+                ex:addressChangeDeclared. Deze shape is nog explicieter, de waarde moet
+                true zijn (dit wordt aangegeven door het predicaat sh:hasValue). We verwachten een triple van de
+                vorm:
             </p>
             <br/>
             <p class="center_p"><strong>x ex:addressChangeDeclared true</strong></p>
             <br/>
             <p>
-                In order to produce the above pattern based on the shape displayed in Listing 3, we
-                employ a rule which detects the occurrences of such shape descriptions and
-                produces the above mentioned pattern. We display the rule for that particular pattern
-                in Listing 8. Next to the assignment of a concrete value for a predicate, our
-                implementation also supports nested paths (i.e. if we have two predicates connecting
-                the target with a node) and qualified value shapes. We plan to further expand our
-                pattern creation mechanism.
+                Om het bovenstaande pattern te produceren op basis van de shape die wordt weergegeven in voorbeeld 3, gebruiken we
+                een regel die dergelijke shape descriptions detecteert en
+                het bovengenoemde pattern produceert. We tonen de regel voor dat specifieke patroon
+                in voorbeeld 8. Naast de toewijzing van een concrete waarde voor een predicaat, ondersteunt onze
+                implementatie ook geneste paden (d.w.z. als we twee predicaten hebben die
+                het target met een node verbinden) en 'qualified value shapes'. We zijn van plan om ons
+                mechanisme voor het creëren van patronen in de toekomst verder te ontwikkelen.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -509,55 +504,55 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 8: (Simplified) Rule producing a pattern based on a shape description.
+                    Voorbeeld 8: (Versimpelde) regel om een pattern te produceren gebaseeerd op een shape description.
                 </figcaption>
             </figure>
             <p>
-                In the description in Listing 7 for which the address change is declared is the same
-                instance for which the address change is confirmed. We thus need to internally
-                represent the target of the shape as a constant which later on will need to be
-                replaced by a variable.
+                In de beschrijving in voorbeeld 7 waar de adreswijziging wordt gedeclareerd, is het dezelfde
+                instantie waarvoor de adreswijziging wordt bevestigd. We moeten dus intern
+                het doel van de shape weergeven als een constante die later zal moeten worden
+                vervangen door een variabele.
             </p>
             <br/>
             <p>
-                After assigning the expected pattern to each shape, our translation finds for each
-                step description all states which are connected with the required state and all shapes
-                which are connected with the produced shapes. It additionally takes all the declared
-                costs into account. The produced shapes get translated to the To-part of the internal
-                step representation format. The required shapes get translated to the Where-part of
-                the step description since in our use cases there are no actions which make data
-                invalid (this might changes if we get more complex use cases). To the Where-part of
-                the internal representation format, we additionally add a triple declaring the target(s)
-                for the shapes used - in our case all shapes are declared for instances of the class
-                o-persoon:Inwoner - and where necessary, we add functions creating new uris for
-                each variable which is used in the To-part of the step description but not in the
-                where-part. This has technical reasons, as backward rules cannot have new
-                variables in their consequence, we need to use this mechanism.
+                Na het toewijzen van het verwachte pattern aan elke shape, vindt onze vertaling voor elke
+                step description alle states die verbonden zijn met de vereiste state en alle shapes
+                die verbonden zijn met de geproduceerde shapes. Bovendien houdt het rekening met alle gedeclareerde
+                costs. De bekomen shapes worden vertaald naar het To-part van het internal step representation formaat. 
+                De vereiste shapes worden vertaald naar het Where-part van
+                de step description, omdat er in onze use cases geen acties zijn die gegevens
+                ongeldig maken (dit kan veranderen als we meer complexe use cases krijgen). Aan het Where-part van
+                het internal representation format, voegen we een triple toe dat het doel (of doelen) verklaart
+                voor de gebruikte shapes - in ons geval worden alle shapes gedeclareerd voor instanties van de klasse
+                o-persoon:Inwoner - en waar nodig voegen we functies toe die nieuwe URI's creëren voor
+                elke variabele die wordt gebruikt in het To-part van de step description, maar niet in het
+                Where-part. Dit heeft technische redenen: omdat backward-rules geen nieuwe
+                variabelen in hun vervolg kunnen hebben, moeten we dit mechanisme gebruiken.
             </p>
             <br/>
             <p>
-                Our translation rules get executed by the EYE reasoner with which we can also
-                produce variables for all instances in our var-namespace. From the different
-                descriptions in Listings 1-4 with additional descriptions of the produced state, we for
-                example produce the rule displayed in Listing 8.
+                De vertaalregels worden uitgevoerd door de EYE reasoner waarmee we ook
+                variabelen kunnen produceren voor alle instanties in onze var-namespace. Uit de verschillende
+                beschrijvingen in voorbeelden 1-4 met aanvullende beschrijvingen van de bekomen state, produceren we bijvoorbeeld
+                de regel die wordt weergegeven in voorbeeld 8.
             </p>
         </div>
         <div class="h2_alinea">
             <h2 class="h2">Goals</h2>
             <p>
-                Next to the description of the different possible steps in our internal format and the
-                description of the current situation as exemplified in Listing 5, we need one more
-                information in order to start our workflow composition process, we need to declare
-                the goal we want to achieve by the execution of the workflow.
+                Naast de beschrijving van de verschillende mogelijke stappen in ons interne formaat en de
+                beschrijving van de huidige situatie zoals geïllustreerd in voorbeeld 5, hebben we nog één
+                iets nodig om ons workflow composition process te starten. We moeten het doel (of goal) aangeven
+                dat we willen bekomen van de workflow.
             </p>
             <br/>
             <p>
-                We display an example of such a goal declaration in Listing 9. Each goal description
-                contains the state we want to reach by executing the workflow (here, the address
-                change needs to be confirmed) together with the limits for each weight. Here, we do
-                to spend more than 4 weeks with the process, we do not want to pay more than 20
-                Euros, we want to have a success rate of the entire workflow of at least 80% and the
-                user satisfaction value should not go below 0.8.
+                We tonen een voorbeeld van zo'n goal declaratie in voorbeeld 9. Elke goal beschrijving
+                bevat de state die we willen bereiken door de workflow uit te voeren (hier moet de adres
+                wijziging worden bevestigd) samen met de limieten voor elk gewicht. Hier willen we
+                meer dan 4 weken aan het proces besteden, we willen niet meer dan 20
+                euro uitgeven, we willen een succespercentage van ten minste 80% over de ganse workflow en de
+                gebruikerstevredenheid mag niet onder 0,8 komen.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -588,58 +583,57 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 9: Example goal
+                    Voorbeeld 9: Voorbeeld van een goal
                 </figcaption>
             </figure>
             <p>
-                We declare such limits for each workflow because of technical reasons. Since our
-                workflow composition produces every possible workflow which reaches the goal and
-                there can be many of such workflows, we limit the search space by declaring such
-                limits. This does not only make it easier to produce the workflow, it also makes it
-                easier for the other tolls depending on the workflow composition to choose from the
-                workflows provided.
+                Om technische redenen verklaren wij dergelijke limieten voor elke workflow. Aangezien onze
+                workflow composition elke mogelijke workflow produceert die het doel bereikt en
+                er veel van zulke workflows kunnen zijn, beperken we de mogelijkheden door zulke
+                limieten. Dit maakt het niet alleen gemakkelijker om de workflow te produceren, het maakt het ook
+                makkelijker voor de andere vereisten die afhankelijk zijn van de workflow composition om te kiezen uit de
+                aangeboden workflows.
             </p>
         </div>
         <div class="h2_alinea">
             <h2 class="h2">Workflow composition</h2>
             <p>
-                Our workflow composer now takes the description of the initial situation (as
-                exemplified in Listing 5), the different step descriptions using our internal format
-                (Listing 7) and the goal to achieve (as in Listing 9) into account. The workflow can
-                additionally make use of external rules which need to be stated in a backwards
-                manner.
+                Onze workflow composition neemt nu de beschrijving van de beginsituatie (zoals
+                in voorbeeld 5), de verschillende step descriptions m.b.v. ons interne formaat
+                (voorbeeld 7) en het te bereiken doel (zoals in voorbeeld 9) in aanmerking. De workflow kan
+                bovendien gebruik maken van externe regels die in een backward-rule manier gedefinieerd moeten worden.
             </p>
             <br/>
             <p>
-                Starting form the current situation, the composer produces all possible paths towards
-                the goal which are within the stated limits. For each path the composer generates,
-                the actual costs are calculated. For monetary costs and duration, the sum of all the
-                steps included is taken, for success and comfort we take the product of all costs.                
+                Uitgaande van de huidige situatie, produceert de composer  alle mogelijke paden naar
+                het doel die binnen de gestelde limieten vallen. Voor elk pad dat de composer genereert,
+                worden de werkelijke costs berekend. Voor monetaire costs en duur wordt de som van alle
+                opgenomen stappen berekend, voor succes en comfort nemen we het product van alle costs.                
             </p>
             <br/>
             <p>
-                In Listing 10, we provide an example output of such a composition process. In order
-                to have an address change confirmed, the user needs to provide personal
-                information, information about the movement and the new address and he needs to
-                request an address change which then needs to be confirmed by the police.
+                In voorbeeld 10 zien we de uitvoer van zo'n composition process. Om
+                een adreswijziging te laten bevestigen, moet de gebruiker persoonlijke
+                informatie meegeven, informatie over de verhuizing, zijn nieuwe adres en moet hij
+                een adreswijziging aanvragen die vervolgens door de politie moet worden bevestigd.
             </p>
             <br/>
             <p>
-                In our example, we do not have alternative paths. This is because we wanted to
-                keep the example for this document simple and understandable. Therefore, all paths
-                are just permutations of each other. The last step, the confirmation of the address
-                change always comes after the declaration, that is because these steps depend on
-                each other.
+                In ons voorbeeld hebben we geen alternatieve paden. Dit is omdat we het voorbeeld
+                voor dit document eenvoudig wilden houden. Daarom zijn alle paden
+                slechts permutaties van elkaar. De laatste stap, de bevestiging van de adreswijziging
+                komt altijd na de verklaring. Dat komt omdat deze stappen afhankelijk zijn van
+                elkaar.
             </p>
             <br/>
             <p>
-                Next to each path, we also display the different costs. Based on the preferences of
-                the user, different paths can be chosen based on the numbers. Depending on the
-                information available, it can also be that some workflows are shorter for particular
-                users. If we actually compose a workflow taking the information in Listing 4 into
-                account, we can for example expect, the composed workflow does not contain a step 
-                asking for personal information since in that case this information is already available
-                in the database.
+                Naast elk pad worden ook de verschillende costs weergegeven. Gebaseerd op de voorkeuren van
+                de gebruiker, kunnen verschillende paden worden gekozen op basis van de cijfers. Afhankelijk van de
+                beschikbare informatie kan het ook zijn dat sommige workflows korter zijn voor bepaalde
+                gebruikers. Als we daadwerkelijk een workflow samenstellen, rekening houdend met de informatie in voorbeeld 4, 
+                kunnen we bijvoorbeeld verwachten dat de samengestelde workflow geen stap zal bevatten 
+                waarin om persoonlijke informatie wordt gevraagd. Omdat deze informatie in dat geval al beschikbaar is
+                in de database.
             </p>
             <figure class="listing">
                 <pre class="background">
@@ -680,31 +674,30 @@
                     </code>
                 </pre>
                 <figcaption>
-                    Listing 10: Example output of path composition.
+                    Voorbeeld 10: output van een path composition.
                 </figcaption>
             </figure>
         </div>
         <div class="h2_alinea">
-            <h2 class="h2">Conclusion</h2>
+            <h2 class="h2">Conclusie</h2>
             <p>
-                We explained how the OSLO-STEPS standard is used to describe
-                steps and their workflows. By decoupling step descriptions from state and shape
-                descriptions we make sure, that the latter can be reused for different descriptions.
+                We hebben uitgelegd hoe OSLO-STEPS wordt gebruikt om stappen en hun workflows te beschrijven. 
+                Door step descriptions te ontkoppelen van state en shape beschrijvingen zorgen we ervoor dat deze laatste 
+                kunnen worden hergebruikt voor andere beschrijvingen.
             </p>
             <br/>
             <p>
-                We furthermore showed, how OSLO-STEPS can be translated into our internal
-                standard. By using linked data and semantic web reasoning, we also kept our
-                implementation open for different standards which can be equally used and easily
-                translated if they include the same kind of information.             
+                Verder hebben we laten zien, hoe OSLO-STEPS kan worden vertaald in ons interne
+                formaat. Door gebruik te maken van linked data en het semantisch web, hielden we ook onze
+                implementatie open voor verschillende standaarden die op dezelfde manier kunnen worden gebruikt en gemakkelijk
+                vertaald kunnen worden als ze dezelfde soort informatie bevatten.            
             </p>
             <br/>
             <p>
-                As a last step, we briefly explained how the workflow composition
-                itself is done. Here, we use backward reasoning in Notation3 Logic and the EYE
-                reasoner. What could still be added to our formalisation is a format to state goals and
-                workflow alternatives in a way which is compatible to OSLO-STEPS, we plan to do
-                so in the future.
+                Als laatste stap, hebben we kort uitgelegd hoe de workflow composition wordt gemaakt. 
+                Hier gebruiken we backwards reasoning in Notation3 Logic en de EYE
+                reasoner. Wat nog toegevoegd zou kunnen worden aan onze formalisatie is een format om doelen en
+                workflow alternatieven te creëren op een manier die compatibel is met OSLO-STEPS. Dit is iets wat we van plan zijn in de toekomst.
             </p>
         </div>
     </div>
